@@ -23,17 +23,22 @@ const interests = [
     value: 'Catan'
   }
 ]
+
+iconLink gives a links to a stored icon file
+interestUrl gives a link to where people can find out more
 */
+// TODO: for icons to work with Interests, really need the ability to upload images
 
 const interestSchema = new mongoose.Schema({
-  title: {
+  value: {
     type: String,
     required: true
   },
-  text: {
-    type: String,
-    required: true
+  icon: {
+    type: String
   },
+  iconLink: String,
+  interestUrl: String,
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

@@ -30,6 +30,8 @@ const languages = [
 //subType = 'technology', 'language', library
 */
 
+// subType covers if it is a library, language or technology.
+// may need to be turned into an array
 const skillSchema = new mongoose.Schema({
   value: {
     type: String,

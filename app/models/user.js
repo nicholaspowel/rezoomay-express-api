@@ -10,6 +10,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  resumes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Resume' }],
+  collections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Collection' }],
   token: String
 }, {
   timestamps: true,

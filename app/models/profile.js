@@ -10,17 +10,28 @@ const InfoHeader = () => (
   </div>
 )
 */
-// TODO: embed multiple summaries, of different lengths?
-
-const summarySchema = new mongoose.Schema({
-  position: {
-    type: String,
-    required: true
+// TODO: add ability to have a profile picture
+const profileSchema = new mongoose.Schema({
+  name: {
+    first: {
+      type: String,
+      required: true
+    },
+    middle: String,
+    last: {
+      type: String,
+      required: true
+    }
   },
-  text: {
-    type: String,
-    required: true
+  location: {
+    city: {
+      type: String,
+      required: true
+    },
+    state: String,
+    country: String
   },
+  imageUrl: String,
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -30,4 +41,4 @@ const summarySchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Summary', summarySchema)
+module.exports = mongoose.model('Profile', profileSchema)

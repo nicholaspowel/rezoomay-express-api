@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
   location: 'Boston, MA'
 }
 */
-// TODO: Break the location in to City, State, and Country
+// TODO: Allow for multiple locations
 // TODO: more closely match LinkedIn models
 
 const jobSchema = new mongoose.Schema({
@@ -21,8 +21,15 @@ const jobSchema = new mongoose.Schema({
     required: true
   },
   location: {
-    type: String,
-    required: true
+    city: {
+      type: String,
+      required: true
+    },
+    state: String,
+    country: {
+      type: String,
+      required: true
+    }
   },
   description: {
     type: String,

@@ -16,10 +16,10 @@ description: [
 ]
 }
 */
-// TODO: Break the location in to City, State, and Country
 // TODO: more closely match LinkedIn models
+// TODO: add preview images?
 
-const educationSchema = new mongoose.Schema({
+const projectSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -28,7 +28,7 @@ const educationSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  location: {
+  summary: {
     type: String,
     required: true
   },
@@ -38,6 +38,9 @@ const educationSchema = new mongoose.Schema({
   },
   startDate: Date,
   endDate: Date,
+  deployed: String,
+  repo: String,
+  skills: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Skill' }],
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -47,4 +50,4 @@ const educationSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Job', educationSchema)
+module.exports = mongoose.model('Project', projectSchema)

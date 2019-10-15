@@ -18,21 +18,33 @@ const mongoose = require('mongoose')
 */
 // TODO: Break the location in to City, State, and Country
 // TODO: more closely match LinkedIn models
+// TODO: break coursework into field and course?
 
 const educationSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
   },
-  company: {
+  school: {
     type: String,
     required: true
   },
   location: {
+    city: {
+      type: String,
+      required: true
+    },
+    state: String,
+    country: {
+      type: String,
+      required: true
+    }
+  },
+  description: {
     type: String,
     required: true
   },
-  description: {
+  coursework: {
     type: String,
     required: true
   },
@@ -47,4 +59,4 @@ const educationSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Job', educationSchema)
+module.exports = mongoose.model('Education', educationSchema)
