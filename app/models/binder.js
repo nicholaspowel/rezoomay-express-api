@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 // This is where users will store combined collections of other resume content.
 // For instance, they may have a Teaching collection, a Software Engineer collection, etc
 
-const collectionSchema = Schema({
+const binderSchema = Schema({
   owner: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -31,5 +31,5 @@ const collectionSchema = Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Collection', collectionSchema)
+module.exports = mongoose.model('Binder', binderSchema)
 // const Person = mongoose.model('Person', personSchema);
