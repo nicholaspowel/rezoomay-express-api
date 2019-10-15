@@ -29,6 +29,10 @@ const educationSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  concentration: {
+    type: String,
+    required: true
+  },
   location: {
     city: {
       type: String,
@@ -40,16 +44,21 @@ const educationSchema = new mongoose.Schema({
       required: true
     }
   },
-  description: {
+  description: [{
     type: String,
     required: true
+  }],
+  coursework: [{
+    type: String
+  }],
+  startDate: {
+    month: String,
+    year: Number
   },
-  coursework: {
-    type: String,
-    required: true
+  endDate: {
+    month: String,
+    year: Number
   },
-  startDate: Date,
-  endDate: Date,
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
