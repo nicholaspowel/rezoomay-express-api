@@ -7,6 +7,16 @@ const cors = require('cors')
 // require route files
 const exampleRoutes = require('./app/routes/example_routes')
 const userRoutes = require('./app/routes/user_routes')
+const collectionRoutes = require('./app/routes/collection_routes')
+const contactRoutes = require('./app/routes/contact_routes')
+const educationRoutes = require('./app/routes/education_routes')
+const interestRoutes = require('./app/routes/interest_routes')
+const jobRoutes = require('./app/routes/job_routes')
+const profileRoutes = require('./app/routes/profile_routes')
+const projectRoutes = require('./app/routes/project_routes')
+const resumeRoutes = require('./app/routes/resume_routes')
+const skillRoutes = require('./app/routes/skill_routes')
+const summaryRoutes = require('./app/routes/summary_routes')
 
 // require middleware
 const errorHandler = require('./lib/error_handler')
@@ -65,6 +75,16 @@ app.use(requestLogger)
 // register route files
 app.use(exampleRoutes)
 app.use(userRoutes)
+app.use(collectionRoutes)
+app.use(contactRoutes)
+app.use(educationRoutes)
+app.use(interestRoutes)
+app.use(jobRoutes)
+app.use(profileRoutes)
+app.use(projectRoutes)
+app.use(resumeRoutes)
+app.use(skillRoutes)
+app.use(summaryRoutes)
 
 // register error handling middleware
 // note that this comes after the route middlewares, because it needs to be
