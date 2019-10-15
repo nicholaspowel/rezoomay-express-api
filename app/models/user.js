@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   resumes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Resume' }],
-  collections: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Collection' }],
+  binders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Binder' }],
   token: String
 }, {
   timestamps: true,
