@@ -19,7 +19,7 @@ const resumeSchema = Schema({
     type: String,
     required: true
   },
-  collection: {
+  binder: {
     type: Schema.Types.ObjectId,
     ref: 'Collection',
     required: true
