@@ -21,7 +21,7 @@ const collectionSchema = Schema({
   },
   profile: { type: mongoose.Schema.Types.ObjectId, ref: 'Profile' },
   summary: { type: mongoose.Schema.Types.ObjectId, ref: 'Summary' },
-  work: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
+  jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
   interest: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Interest' }],
   skills: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Skill' }],
   contacts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Contact' }],
