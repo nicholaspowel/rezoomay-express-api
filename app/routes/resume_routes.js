@@ -87,10 +87,12 @@ router.patch('/resumes/:id', requireToken, removeBlanks, (req, res, next) => {
       requireOwnership(req, resume)
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      return resume.updateOne(req.body.resume)
+      return resume.set(req.body.resume).save()
     })
     // if that succeeded, return 204 and no JSON
-    .then(() => res.sendStatus(204))
+    .then(resume => {
+      res.status(200).json({ resume: resume.toObject() })
+    })
     // if an error occurs, pass it to the handler
     .catch(next)
 })

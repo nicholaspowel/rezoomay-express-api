@@ -87,10 +87,12 @@ router.patch('/jobs/:id', requireToken, removeBlanks, (req, res, next) => {
       requireOwnership(req, job)
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      return job.updateOne(req.body.job)
+      return job.set(req.body.job).save()
     })
     // if that succeeded, return 204 and no JSON
-    .then(() => res.sendStatus(204))
+    .then(job => {
+      res.status(200).json({ job: job.toObject() })
+    })
     // if an error occurs, pass it to the handler
     .catch(next)
 })

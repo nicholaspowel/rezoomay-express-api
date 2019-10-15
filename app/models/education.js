@@ -2,18 +2,29 @@ const mongoose = require('mongoose')
 
 /*
 {
-  date: 'Sept 2013 - Sept 2015',
-  school: 'UMass Amherst',
-  concentration: 'Operations Information Management',
-  location: 'Amherst, MA',
-  coursework: true,
-  description: [
-    'Computer Science: Intro to Java, Data Structures, Game Design, Data Science',
-    'Information Technology: Computer Literacy, Problem Solving with Internet',
-    'Mathematics: Calculus I, Calculus II, Statistics',
-    'Operations: Business Information Systems, Business Intelligence & Analytics',
-    'Business: Law, Accounting, Finance, Marketing, Management'
-  ]
+  "education": {
+  "title": "General Assembly",
+  "startDate": {
+    "month": "Jan",
+    "year": 2019
+    },
+    "endDate": {
+      "month": "Apr",
+      "year": 2019
+    },
+    "school": "General Assembly",
+    "concentration": "Full Stack Web Development",
+    "location": {
+      "city": "Boston",
+      "state": "MA",
+      "country": "USA"
+    },
+    "description": [
+      "Full time 500+ hour Web Development Immersive Program",
+      "Developed four Full Stack web applications using JavaScript, HTML, CSS, and Ruby",
+      "Collaborated with a team using Agile methodology and Scrum principles"
+    ]
+  }
 }
 */
 // TODO: Break the location in to City, State, and Country

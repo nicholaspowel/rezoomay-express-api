@@ -87,10 +87,12 @@ router.patch('/skills/:id', requireToken, removeBlanks, (req, res, next) => {
       requireOwnership(req, skill)
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      return skill.updateOne(req.body.skill)
+      return skill.set(req.body.skill).save()
     })
     // if that succeeded, return 204 and no JSON
-    .then(() => res.sendStatus(204))
+    .then(skill => {
+      res.status(200).json({ skill: skill.toObject() })
+    })
     // if an error occurs, pass it to the handler
     .catch(next)
 })

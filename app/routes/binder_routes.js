@@ -87,10 +87,12 @@ router.patch('/binders/:id', requireToken, removeBlanks, (req, res, next) => {
       requireOwnership(req, binder)
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      return binder.updateOne(req.body.binder)
+      return binder.set(req.body.binder).save()
     })
     // if that succeeded, return 204 and no JSON
-    .then(() => res.sendStatus(204))
+    .then(binder => {
+      res.status(200).json({ binder: binder.toObject() })
+    })
     // if an error occurs, pass it to the handler
     .catch(next)
 })

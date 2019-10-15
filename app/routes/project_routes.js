@@ -87,10 +87,12 @@ router.patch('/projects/:id', requireToken, removeBlanks, (req, res, next) => {
       requireOwnership(req, project)
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      return project.updateOne(req.body.project)
+      return project.set(req.body.project).save()
     })
     // if that succeeded, return 204 and no JSON
-    .then(() => res.sendStatus(204))
+    .then(project => {
+      res.status(200).json({ project: project.toObject() })
+    })
     // if an error occurs, pass it to the handler
     .catch(next)
 })
