@@ -32,10 +32,10 @@ const projectSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  description: [{
+  description: {
     type: String,
     required: true
-  }],
+  },
   startDate: Date,
   endDate: Date,
   deployed: String,

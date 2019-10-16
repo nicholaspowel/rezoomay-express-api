@@ -55,13 +55,13 @@ const educationSchema = new mongoose.Schema({
       required: true
     }
   },
-  description: [{
+  description: {
     type: String,
     required: true
-  }],
-  coursework: [{
+  },
+  coursework: {
     type: String
-  }],
+  },
   startDate: {
     month: String,
     year: Number
