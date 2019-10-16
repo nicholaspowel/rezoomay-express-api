@@ -3,7 +3,7 @@ const express = require('express')
 // Passport docs: http://www.passportjs.org/docs/
 const passport = require('passport')
 
-// pull in Mongoose model for summarys
+// pull in Mongoose model for summaries
 const Summary = require('../models/summary')
 
 // this is a collection of methods that help us detect situations when we need
@@ -28,24 +28,24 @@ const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
 
 // INDEX
-// GET /summarys
-router.get('/summarys', requireToken, (req, res, next) => {
+// GET /summaries
+router.get('/summaries', requireToken, (req, res, next) => {
   Summary.find()
-    .then(summarys => {
-      // `summarys` will be an array of Mongoose documents
+    .then(summaries => {
+      // `summaries` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
-      return summarys.map(summary => summary.toObject())
+      return summaries.map(summary => summary.toObject())
     })
-    // respond with status 200 and JSON of the summarys
-    .then(summarys => res.status(200).json({ summarys: summarys }))
+    // respond with status 200 and JSON of the summaries
+    .then(summaries => res.status(200).json({ summaries: summaries }))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
 
 // SHOW
-// GET /summarys/5a7db6c74d55bc51bdf39793
-router.get('/summarys/:id', requireToken, (req, res, next) => {
+// GET /summaries/5a7db6c74d55bc51bdf39793
+router.get('/summaries/:id', requireToken, (req, res, next) => {
   // req.params.id will be set based on the `:id` in the route
   Summary.findById(req.params.id)
     .then(handle404)
@@ -56,8 +56,8 @@ router.get('/summarys/:id', requireToken, (req, res, next) => {
 })
 
 // CREATE
-// POST /summarys
-router.post('/summarys', requireToken, (req, res, next) => {
+// POST /summaries
+router.post('/summaries', requireToken, (req, res, next) => {
   // set owner of new summary to be current user
   req.body.summary.owner = req.user.id
 
@@ -73,8 +73,8 @@ router.post('/summarys', requireToken, (req, res, next) => {
 })
 
 // UPDATE
-// PATCH /summarys/5a7db6c74d55bc51bdf39793
-router.patch('/summarys/:id', requireToken, removeBlanks, (req, res, next) => {
+// PATCH /summaries/5a7db6c74d55bc51bdf39793
+router.patch('/summaries/:id', requireToken, removeBlanks, (req, res, next) => {
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
   delete req.body.summary.owner
@@ -98,8 +98,8 @@ router.patch('/summarys/:id', requireToken, removeBlanks, (req, res, next) => {
 })
 
 // DESTROY
-// DELETE /summarys/5a7db6c74d55bc51bdf39793
-router.delete('/summarys/:id', requireToken, (req, res, next) => {
+// DELETE /summaries/5a7db6c74d55bc51bdf39793
+router.delete('/summaries/:id', requireToken, (req, res, next) => {
   Summary.findById(req.params.id)
     .then(handle404)
     .then(summary => {
