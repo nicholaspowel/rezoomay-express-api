@@ -30,7 +30,7 @@ const router = express.Router()
 // INDEX
 // GET /contacts
 router.get('/contacts', requireToken, (req, res, next) => {
-  Contact.find()
+  Contact.find({owner: req.user._id})
     .then(contacts => {
       // `contacts` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
@@ -49,6 +49,10 @@ router.get('/contacts/:id', requireToken, (req, res, next) => {
   // req.params.id will be set based on the `:id` in the route
   Contact.findById(req.params.id)
     .then(handle404)
+    .then(contact => {
+      requireOwnership(req, contact)
+      return contact
+    })
     // if `findById` is succesful, respond with 200 and "contact" JSON
     .then(contact => res.status(200).json({ contact: contact.toObject() }))
     // if an error occurs, pass it to the handler
