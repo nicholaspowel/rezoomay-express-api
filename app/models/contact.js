@@ -26,7 +26,7 @@ const contacts = [
 */
 
 const contactSchema = new mongoose.Schema({
-  type: {
+  method: {
     type: String,
     required: true
   },

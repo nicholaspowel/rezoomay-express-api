@@ -28,6 +28,16 @@ const languages = [
   }
 ]
 //subType = 'technology', 'language', library
+{
+           "_id": "5da873330b82c1118db84d92",
+           "value": "React.js",
+           "subType": "Library/Framework",
+           "icon": "devicon-react-original colored",
+           "owner": "5da6367f15fbb2c8fc5c7e35",
+           "createdAt": "2019-10-17T13:57:07.286Z",
+           "updatedAt": "2019-10-17T13:57:07.286Z",
+           "__v": 0
+       }
 */
 
 // subType covers if it is a library, language or technology.

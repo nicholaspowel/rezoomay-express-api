@@ -62,14 +62,8 @@ const educationSchema = new mongoose.Schema({
   coursework: {
     type: String
   },
-  startDate: {
-    month: String,
-    year: Number
-  },
-  endDate: {
-    month: String,
-    year: Number
-  },
+  startDate: Date,
+  endDate: Date,
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
