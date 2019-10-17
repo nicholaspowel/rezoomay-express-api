@@ -13,6 +13,10 @@ const InfoHeader = () => (
 // TODO: embed multiple summaries, of different lengths?
 
 const summarySchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
   position: {
     type: String,
     required: true

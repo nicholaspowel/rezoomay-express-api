@@ -30,6 +30,7 @@ const languages = [
 //subType = 'technology', 'language', library
 {
            "_id": "5da873330b82c1118db84d92",
+           "title": "React.js",
            "value": "React.js",
            "subType": "Library/Framework",
            "icon": "devicon-react-original colored",
@@ -43,6 +44,10 @@ const languages = [
 // subType covers if it is a library, language or technology.
 // may need to be turned into an array
 const skillSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
   value: {
     type: String,
     required: true

@@ -23,6 +23,19 @@ const contacts = [
     value: 'davidholyko.github.io'
   }
 ]
+
+{
+    "contact": {
+        "_id": "5da8a0c3ee22fa1cdd6c140f",
+        "value": "nicholaspowel.github.io",
+        "method": "Portfolio",
+        "icon": "portfolio",
+        "owner": "5da6367f15fbb2c8fc5c7e35",
+        "createdAt": "2019-10-17T17:11:31.901Z",
+        "updatedAt": "2019-10-17T17:11:31.901Z",
+        "__v": 0
+    }
+}
 */
 
 const contactSchema = new mongoose.Schema({

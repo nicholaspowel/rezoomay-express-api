@@ -1,17 +1,34 @@
 const mongoose = require('mongoose')
 
 /*
-const summary = 'I am a software engineer focusing in web development. My passion for continuous improvement and teamwork helps me create applications that are usable, functional, and modular.'
-const InfoHeader = () => (
-  <div id="info-header">
-    <h1 className="name">David Ko</h1>
-    <h4 className="title">Software Engineer</h4>
-    <h4 className="title">Boston, MA</h4>
-  </div>
-)
+{
+    "profile": {
+        "_id": "5da8a768a7d1211d14d0fd06",
+        "title": "GA",
+        "name": {
+            "first": "John Nicholas",
+            "middle": "Ives",
+            "last": "Powel"
+        },
+        "imageUrl": "",
+        "location": {
+            "city": "Boston",
+            "state": "MA",
+            "country": "USA"
+        },
+        "owner": "5da6367f15fbb2c8fc5c7e35",
+        "createdAt": "2019-10-17T17:39:52.077Z",
+        "updatedAt": "2019-10-17T17:39:52.077Z",
+        "__v": 0
+    }
+}
 */
 // TODO: add ability to have a profile picture
 const profileSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
   name: {
     first: {
       type: String,

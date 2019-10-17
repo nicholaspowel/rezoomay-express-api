@@ -2,10 +2,24 @@ const mongoose = require('mongoose')
 
 /*
 {
-  date: 'Oct 2018 - Jan 2019',
-  company: 'Roche Bros Supermarket',
-  title: 'Deli Clerk',
-  location: 'Boston, MA'
+    "job": {
+        "_id": "5da89d98a03666183a185447",
+        "title": "GA work",
+        "startDate": "1976-04-19T17:59:00.000Z",
+        "endDate": "1976-04-19T17:59:00.000Z",
+        "company": "General Assembly",
+        "position": "Full Stack Engineer",
+        "location": {
+            "city": "Boston",
+            "state": "MA",
+            "country": "USA"
+        },
+        "description": "Full time 500+ Web Development Immersive Program\n Developed four Full Stack web applications using JavaScript, HTML, CSS, and Ruby\n Collaborated with a team using Agile methodology and Scrum principles",
+        "owner": "5da6367f15fbb2c8fc5c7e35",
+        "createdAt": "2019-10-17T16:58:00.057Z",
+        "updatedAt": "2019-10-17T16:58:00.057Z",
+        "__v": 0
+    }
 }
 */
 // TODO: Allow for multiple locations
