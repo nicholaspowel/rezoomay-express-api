@@ -27,6 +27,7 @@ const interests = [
     "interest": {
         "_id": "5da8a2b59c5e6f1ce869f518",
         "value": "Cooking",
+        "value": "Cooking",
         "iconLink": "",
         "interestUrl": "",
         "icon": "cooking",
@@ -43,6 +44,10 @@ interestUrl gives a link to where people can find out more
 // TODO: for icons to work with Interests, really need the ability to upload images
 
 const interestSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
   value: {
     type: String,
     required: true
